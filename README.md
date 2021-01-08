@@ -7,12 +7,12 @@ Bikeshare Statistics Interactive Program
 ### Description
 Allows user to select filters for running statistics on Bikeshare Data for specific cities. \
 Current Cities available are: \
-New York \ 
+New York \
 Chicago \
 Washington
 
 ### Files used
-Program file: bikeshare.py \ 
+Program file: bikeshare.py \
 Data Files: chicago.csv, washington.csv and new_york_city.csv 
 
 ### Credits
