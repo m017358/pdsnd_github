@@ -1,15 +1,20 @@
 ### Date created
-Include the date you created this project and README file.
+8th of January 2021
 
 ### Project Title
-Replace the Project Title
+Bikeshare Statistics Interactive Program
 
 ### Description
-Describe what your project is about and what it does
+Allows user to select filters for running statistics on Bikeshare Data for specific cities 
+Current Cities avaliable are:
+New York
+Chicago
+Washington
 
 ### Files used
-Include the files used
+Program file - bikeshare.py
+Data Files: chicago.csv, washington.csv and new_york_city.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+Udacity - Templates and Traning metarial in Programming for Data Science with Python Nano Degree
 
