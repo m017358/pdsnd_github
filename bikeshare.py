@@ -2,6 +2,7 @@ import time
 import pandas as pd
 import numpy as np
 import calendar
+from tabulate import tabulate
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
@@ -191,30 +192,21 @@ def user_stats(df):
 def raw_data(df):
     """Displays raw data on bikeshare users if desired by user"""
     
-    #Set variables
-    rows=5
-    rows_displayed = 0
-    total_rows = df.count().iloc[0] 
-    view_raw_data = input('\nWould you like to view {} lines of raw data? Enter yes or no.\n'.format(rows))
-    if view_raw_data.lower() != 'yes':
-        print('-'*40)
-        return
-      
     print('\nDisplaying Raw Data...\n')
     start_time = time.time()
     
-    while rows_displayed <= total_rows :
-        print(df.head((rows_displayed + rows)).tail(rows))
-        print("\nThis took %s seconds." % (time.time() - start_time))
-        print('-'*40)
-        
-        view_more_raw_data = input('\nWould you like to view another {} lines of raw data? Enter yes or no.\n'.format(rows))
-        if  view_more_raw_data.lower() != 'yes':
-            print('-'*40)
+    #Set variables
+    i=0
+    
+    while True:
+        display_data = input('\nWould you like to see 5 lines of raw data? Enter yes or no.\n')
+        if display_data.lower() != 'yes':
             break
+        print(tabulate(df.iloc[np.arange(0+i,5+i)], headers ="keys"))
+        i+=5 
         
-        rows_displayed += rows      
-        
+    print("\nThis took %s seconds." % (time.time() - start_time))
+    print('-'*40)
     
 def main():
     while True:
