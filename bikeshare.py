@@ -2,6 +2,7 @@ import time
 import pandas as pd
 import numpy as np
 import calendar
+from tabulate import tabulate
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
@@ -24,7 +25,7 @@ def get_filters():
     #start user interaction
     print('Hello! Let\'s explore some US bikeshare data!')
     # Get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    #city = input("Please enter the name of the city you would like to analyse (Chicago, New York or Washington): ")
+    
     while True:
         city = input("Please enter the name of the city you would like to analyse (Chicago, New York City or Washington): ")
         if city.lower() in CITY_DATA :
@@ -100,7 +101,7 @@ def time_stats(df):
     # Display the most common month
     most_common_month = df.month.mode().iloc[0]
     most_common_month_name = calendar.month_name[most_common_month]
-    #print(month_name.iloc[0])
+    
     print('The most common month of travel for paramters specified is:', most_common_month_name.title())
           
 
@@ -128,12 +129,12 @@ def station_stats(df):
     print('The most common Start Station of travel for paramters specified is:', most_common_start_station.title())
 
 
-    # TO DO: display most commonly used end station
+    # Display most commonly used end station
     most_common_end_station = df['End Station'].mode().iloc[0]
     print('The most common End Station of travel for paramters specified is:', most_common_end_station.title())
 
 
-    # TO DO: display most frequent combination of start station and end station trip
+    # Display most frequent combination of start station and end station trip
     most_common_start_end_station = (df['Start Station'] + ' - ' + df['End Station']).mode().iloc[0]
     print('The most common combination of Start Station and End Station of travel for paramters specified is:' , most_common_start_end_station)
 
@@ -191,30 +192,21 @@ def user_stats(df):
 def raw_data(df):
     """Displays raw data on bikeshare users if desired by user"""
     
-    #Set variables
-    rows=5
-    rows_displayed = 0
-    total_rows = df.count().iloc[0] 
-    view_raw_data = input('\nWould you like to view {} lines of raw data? Enter yes or no.\n'.format(rows))
-    if view_raw_data.lower() != 'yes':
-        print('-'*40)
-        return
-      
     print('\nDisplaying Raw Data...\n')
     start_time = time.time()
     
-    while rows_displayed <= total_rows :
-        print(df.head((rows_displayed + rows)).tail(rows))
-        print("\nThis took %s seconds." % (time.time() - start_time))
-        print('-'*40)
-        
-        view_more_raw_data = input('\nWould you like to view another {} lines of raw data? Enter yes or no.\n'.format(rows))
-        if  view_more_raw_data.lower() != 'yes':
-            print('-'*40)
+    #Set variables
+    i=0
+    
+    while True:
+        display_data = input('\nWould you like to see 5 lines of raw data? Enter yes or no.\n')
+        if display_data.lower() != 'yes':
             break
+        print(tabulate(df.iloc[np.arange(0+i,5+i)], headers ="keys"))
+        i+=5 
         
-        rows_displayed += rows      
-        
+    print("\nThis took %s seconds." % (time.time() - start_time))
+    print('-'*40)
     
 def main():
     while True:
