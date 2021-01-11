@@ -129,12 +129,12 @@ def station_stats(df):
     print('The most common Start Station of travel for paramters specified is:', most_common_start_station.title())
 
 
-    # TO DO: display most commonly used end station
+    # Display most commonly used end station
     most_common_end_station = df['End Station'].mode().iloc[0]
     print('The most common End Station of travel for paramters specified is:', most_common_end_station.title())
 
 
-    # TO DO: display most frequent combination of start station and end station trip
+    # Display most frequent combination of start station and end station trip
     most_common_start_end_station = (df['Start Station'] + ' - ' + df['End Station']).mode().iloc[0]
     print('The most common combination of Start Station and End Station of travel for paramters specified is:' , most_common_start_end_station)
 
