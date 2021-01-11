@@ -25,7 +25,7 @@ def get_filters():
     #start user interaction
     print('Hello! Let\'s explore some US bikeshare data!')
     # Get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    #city = input("Please enter the name of the city you would like to analyse (Chicago, New York or Washington): ")
+    
     while True:
         city = input("Please enter the name of the city you would like to analyse (Chicago, New York City or Washington): ")
         if city.lower() in CITY_DATA :
@@ -101,7 +101,7 @@ def time_stats(df):
     # Display the most common month
     most_common_month = df.month.mode().iloc[0]
     most_common_month_name = calendar.month_name[most_common_month]
-    #print(month_name.iloc[0])
+    
     print('The most common month of travel for paramters specified is:', most_common_month_name.title())
           
 
