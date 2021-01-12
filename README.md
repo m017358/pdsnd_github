@@ -18,3 +18,5 @@ Data Files: chicago.csv, washington.csv and new_york_city.csv
 ### Credits
 Udacity - Templates and Training material from Programming for Data Science with Python Nano Degree
 
+### Updates
+10th of January 2021 - Improved Raw Data funtion to return all columns in dataset and cleaned up comments
